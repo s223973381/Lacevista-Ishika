@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -6,6 +7,8 @@ const path = require('path');
 const session = require('express-session');
 const http = require('http');
 const socketIO = require('socket.io');
+
+
 
 // Route imports
 const pagesRoutes = require('./routes/pagesRoutes');
@@ -38,8 +41,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // MongoDB Connection
-console.log('Connecting to MongoDB at:', process.env.MONGO_URL);
-mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost:27017/LaceVista')
+console.log('Connecting to MongoDB at:', process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI || 'mongodb+srv://ishikamandal0310:YtHFXjuQEbiqN7CU@cluster0.vv1gbjz.mongodb.net/LaceVista-Ishika')
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error(err));
 
