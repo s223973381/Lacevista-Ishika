@@ -175,29 +175,35 @@ cd LaceVista
 ### Step 2: Install Dependencies
 npm install
 
-### Step 3: Run the Application
+### Step 3: Run the Application Locally using Express.Js
 node app.js
+
 ˇ ˙
- 
+ ### Step 4: Run the Application on Docker
  Running the Application in Docker Follow the steps below to build and run the Docker container 
 for this application. 
 1. Build the Docker Image Make sure you're in the root directory of the project (where the Dockerfile 
 is located), then run: 
-docker build -t sit725-app . 
+    docker build -t sit725-app . 
 
  2. Run the Container Option A: Using Docker Compose 
 If you're using docker-compose.yml, simply run: 
-docker-compose up 
+ docker-compose up 
 Option B: Manually 
 If you're running MongoDB locally or on Atlas, use: 
 docker run --env-file .env -p 3000:3000 sit725-app 
 Or your MongoDB Atlas URI mongodb+srv://ishikamandal0310:YtHFXjuQEbiqN7CU@cluster0.vv1gbjz.mongodb.net/LaceVista-Ishika
+
+Check if your port is already being used by  any other container by running:
+docker ps
+Note the container id using port 3000, and then run :
+docker stop <container id>
+
 3. Access the Application Once the container is running, go to: 
 http://localhost:3000 
 
- 4. Check the /api/student Route You can test the API route using a browser or a tool like 
-Postman: 
-GET http://localhost:3000/api/student 
+ 4. Check the /api/student Route : 
+http://localhost:3000/api/student 
 ⬛   Expected Output: 
 { "name": "Ishika Mandal", "studentId": "223973381" }
 
